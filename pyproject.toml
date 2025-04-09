@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "daimyo"
+description = "A modern Python build backend powered by ninja"
+keywords = ["ninja-build", "pep517", "build-system"]
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Nicholas Junge" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Typing :: Typed",
+]
+
+dynamic = ["version"]
+
+[dependency-groups]
+dev = ["pre-commit"]
+
+[tool.ruff]
+src = ["src"]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "S", "W", "UP"]
+ignore = [
+    # Line too long
+    "E501",
+    # Allow capitalized variable names
+    "F841",
+]
